@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using HospitalManagement.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace HospitalManagement.Repositories
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
         {
 
-        }    
+        }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
