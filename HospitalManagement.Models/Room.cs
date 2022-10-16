@@ -7,6 +7,6 @@
         public string Type { get; set; }
         public string Status { get; set; }
         public int HospitalId { get; set; }
-        public Hospital Hospitals { get; set; }
+        public HospitalInfo Hospitals { get; set; }
     }
 }

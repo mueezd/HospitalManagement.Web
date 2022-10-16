@@ -8,7 +8,7 @@ namespace HospitalManagement.Models
 {
     public class Medicine
     {
-        public int MyProperty { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public decimal Cost { get; set; }
