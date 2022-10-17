@@ -5,6 +5,7 @@ using HospitalManagement.Utilities;
 using HospitalManagement.Repositories.Interfaces;
 using HospitalManagement.Repositories.Implementation;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using HospitalManagement.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,9 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddTransient<IHospitalInfo, HospitalInfoService>();
 builder.Services.AddRazorPages();
+//builder.Services.AddCloudscribePagination();
 
 var app = builder.Build();
 
@@ -41,7 +44,7 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{Area=Patient}/{controller=Home}/{action=Index}/{id?}");
+    pattern: "{Area=admin}/{controller=Hospitals}/{action=Index}/{Id?}");
 
 app.Run();
 
